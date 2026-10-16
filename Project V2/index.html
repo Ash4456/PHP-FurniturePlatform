@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Living · Furniture</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .main-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 24px 30px 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .top-row {
+            border-bottom: 2px solid #eaeaea;
+            padding-bottom: 16px;
+            margin-bottom: 16px;
+        }
+
+        .logo-cell {
+            width: 110px;
+            vertical-align: middle;
+        }
+        .logo-box {
+            background: #141414;
+            color: white;
+            font-size: 22px;
+            font-weight: 700;
+            width: 80px;
+            height: 80px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 0.5px;
+        }
+
+        .title-cell {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: #141414;
+            letter-spacing: 0.5px;
+        }
+        .title-cell span {
+            font-weight: 300;
+            color: #777;
+        }
+
+        .login-cell {
+            text-align: right;
+            white-space: nowrap;
+            vertical-align: middle;
+        }
+        .login-cell a {
+            display: inline-block;
+            margin-left: 18px;
+            color: #2c2c2c;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            padding: 6px 12px;
+            border-radius: 40px;
+            transition: background 0.15s;
+        }
+        .login-cell a:hover {
+            background: #f0efec;
+        }
+        .login-cell .signup {
+            background: #141414;
+            color: white;
+            padding: 6px 18px;
+        }
+        .login-cell .signup:hover {
+            background: #333;
+        }
+
+        .divider-black {
+            background: #141414;
+            height: 6px;
+            border-radius: 20px;
+            margin: 12px 0 18px 0;
+        }
+
+        .hot-title {
+            background: #141414;
+            color: white;
+            text-align: center;
+            padding: 12px 0;
+            border-radius: 60px;
+            margin: 20px 0 22px 0;
+            font-weight: 600;
+            font-size: 20px;
+            letter-spacing: 1px;
+        }
+
+        .product-table {
+            margin-top: 4px;
+        }
+        .product-table td {
+            vertical-align: top;
+            padding: 0 6px;
+        }
+        .product-card {
+            background: #fcfcfa;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid #eee;
+            transition: 0.2s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 28px -8px rgba(0,0,0,0.08);
+            border-color: #ccc;
+        }
+
+        .product-img {
+            background: #f3f2ed;
+            padding: 20px 10px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 180px;
+        }
+        .product-img img {
+            max-width: 100%;
+            max-height: 220px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .product-detail {
+            padding: 16px 18px 20px;
+            background: white;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-name {
+            font-weight: 700;
+            font-size: 18px;
+            color: #141414;
+        }
+        .logo-cell {
+            width: 110px;
+            vertical-align: middle;
+        }
+        .logo-cell .logo-img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            display: block;
+            border-radius: 18px;
+        }
+        .product-price {
+            font-weight: 700;
+            font-size: 20px;
+            color: #141414;
+            margin: 8px 0 14px;
+        }
+        .product-price small {
+            font-weight: 400;
+            font-size: 13px;
+            color: #888;
+            margin-left: 4px;
+        }
+
+        .product-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: auto;
+            flex-wrap: wrap;
+        }
+        .btn-buy {
+            background: #141414;
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.15s;
+            font-family: Arial, sans-serif;
+        }
+        .btn-buy:hover {
+            background: #333;
+        }
+        .btn-buy:active {
+            transform: scale(0.96);
+        }
+        .footer-divider {
+            margin: 28px 0 18px 0;
+        }
+        .footer-note {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            font-size: 14px;
+            color: #6b6b6b;
+            padding-top: 6px;
+        }
+
+        @media (max-width: 760px) {
+            .main-wrapper { padding: 16px; }
+            .title-cell { font-size: 18px; }
+            .login-cell a { font-size: 12px; margin-left: 8px; padding: 4px 8px; }
+            .product-table td { display: block; width: 100% !important; padding: 8px 0; }
+            .product-card { margin-bottom: 12px; }
+            .footer-note { flex-direction: column; align-items: flex-start; gap: 8px; }
+        }
+        @media (max-width: 480px) {
+            .top-row td { display: block; text-align: center; width: 100% !important; }
+            .logo-cell { text-align: center; }
+            .login-cell { text-align: center; margin-top: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-wrapper">
+
+    <table class="top-row">
+        <tr>
+            <td class="logo-cell">
+                <img src="Designer (3).png" alt="Logo" class="logo-img">
+            </td>
+            <td class="title-cell">
+                Premium<span>Living</span>
+            </td>
+            <td class="login-cell">
+                <a href="logincustomer.php">👤 Customer Login</a>
+                <a href="loginstaff.php">👔 Staff Login</a>
+                <a href="createaccount.php" class="signup">📝 Sign Up</a>
+            </td>
+        </tr>
+    </table>
+
+    <div class="divider-black"></div>
+
+    <div class="hot-title">
+        🔥 Hot Furniture Picks 🔥
+    </div>
+
+    <table class="product-table">
+        <colgroup>
+            <col style="width:32%">
+            <col style="width:2%">
+            <col style="width:32%">
+            <col style="width:2%">
+            <col style="width:32%">
+        </colgroup>
+        <tr>
+            <td>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="1.png" alt="Oak Dining Chair">
+                    </div>
+                    <div class="product-detail">
+                        <div class="product-name">Oak Dining Chair</div>
+                        <div class="product-price">$450 <small>HKD</small></div>
+                        <div class="product-actions">
+                            <a href="logincustomer.php" class="btn-buy">🛒 Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td></td>
+            <td>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="3.png" alt="3-Seater Fabric Sofa">
+                    </div>
+                    <div class="product-detail">
+                        <div class="product-name">3-Seater Fabric Sofa</div>
+                        <div class="product-price">$3,800 <small>HKD</small></div>
+                        <div class="product-actions">
+                            <a href="logincustomer.php" class="btn-buy">🛒 Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td></td>
+            <td>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="4.png" alt="Wooden Wardrobe">
+                    </div>
+                    <div class="product-detail">
+                        <div class="product-name">Wooden Wardrobe</div>
+                        <div class="product-price">$1,800 <small>HKD</small></div>
+                        <div class="product-actions">
+                            <a href="logincustomer.php" class="btn-buy">🛒 Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <div class="divider-black footer-divider"></div>
+
+    <div class="footer-note">
+        <span>© Premium Living Furniture Co. Ltd 2026</span>
+    </div>
+
+</div>
+</body>
+</html>
